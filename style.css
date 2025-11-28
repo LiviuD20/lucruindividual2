@@ -1,5 +1,5 @@
 body {
-    background-color: #121212; /* Dark Mode */
+    background-color: #0f0f0f;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -7,48 +7,74 @@ body {
 }
 
 header {
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    padding: 50px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+    border-bottom: 2px solid #ff3b30;
 }
 
-h1 { margin: 0; color: #ff3b30; /* Roșu sport */ }
+h1 { font-size: 2.5rem; margin-bottom: 10px; color: #ff3b30; text-transform: uppercase; letter-spacing: 2px; }
 
 .btn-main {
-    background-color: #ff3b30;
-    color: white;
-    border: none;
-    padding: 12px 25px;
+    background-color: transparent;
+    color: #ff3b30;
+    border: 2px solid #ff3b30;
+    padding: 12px 30px;
     font-size: 16px;
-    border-radius: 30px;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    transition: transform 0.2s;
+    transition: all 0.3s;
 }
 
-.btn-main:hover { transform: scale(1.05); }
+.btn-main:hover {
+    background-color: #ff3b30;
+    color: white;
+    box-shadow: 0 0 15px #ff3b30;
+}
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Mai multe coloane */
+    gap: 25px;
     padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    background: #1e1e1e;
-    border-radius: 15px;
+    background: #1a1a1a;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #333;
 }
 
-.card:hover { transform: translateY(-5px); }
+/* --- EFECTE DE HOVER --- */
+.card:hover { 
+    transform: translateY(-10px); /* Se ridică */
+    border-color: #ff3b30; /* Margine roșie */
+    box-shadow: 0 10px 20px rgba(255, 59, 48, 0.2); /* Umbră roșie */
+}
+
+.img-wrapper {
+    overflow: hidden; /* Ascunde imaginea când iese din cadru la zoom */
+    height: 200px;
+}
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease; /* Animație lină la zoom */
 }
 
-.card-info { padding: 15px; }
+.card:hover img {
+    transform: scale(1.1); /* Imaginea se mărește la hover */
+}
+
+.card-info { padding: 15px; text-align: left; }
+.card-info h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+.card-info p { margin: 0; color: #888; font-size: 0.9rem; }
